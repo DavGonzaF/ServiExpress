@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Servicios Disponibles</h1>
+
+    {% if servicios %}
+<div class="row">
+    {% for servicio in servicios %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <!-- Mostrar la imagen -->
+            {% if servicio.imagen %}
+            <img src="{{ servicio.imagen.url }}" class="card-img-top" alt="{{ servicio.nombre }}">
+            {% else %}
+            <img src="{% static 'img/default.png' %}" class="card-img-top" alt="Imagen no disponible">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title text-primary">{{ servicio.nombre }}</h5>
+                <p class="card-text">{{ servicio.descripcion }}</p>
+                <p class="card-text"><strong>Precio:</strong> ${{ servicio.precio }}</p>
+            </div>
+            <div class="card-footer text-center">
+                <form action="{% url 'agregar_al_carrito' servicio.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success">Agregar al Carrito</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info text-center" role="alert">
+    No hay servicios disponibles.
+</div>
+{% endif %}
+</div>
+{% endblock %}

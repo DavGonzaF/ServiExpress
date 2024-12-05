@@ -1,0 +1,180 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h6 {
+    color: #222;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+h5 {
+    color:darkgrey;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #343a40 !important; /* Fondo oscuro */
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #f8f9fa !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #adb5bd !important; /* Hover claro */
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #bd2130;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Tablas */
+.table {
+    margin-top: 20px;
+    border: 1px solid #dee2e6;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.table th {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.table-striped tbody tr:hover {
+    background-color: #dee2e6;
+}
+
+/* Formularios */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-login {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #dee2e6; /* Borde gris claro */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-login h2 {
+    background-color: #343a40; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    margin: -20px -20px 20px -20px; /* Ajusta los márgenes para encajar en el contenedor */
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 20px; /* Espacio respecto al contenido */
+}
+
+.carousel-container .carousel-inner img {
+    width: 100%;
+    max-height: 300px; /* Ajusta esta altura según el tamaño de las imágenes destacadas */
+    object-fit: cover; /* Para mantener la proporción de la imagen */
+    border-radius: 8px; /* Añade bordes redondeados como en las tarjetas */
+}
+
+/* Carrusel */
+.carousel-inner img {
+    width: 100%;
+    height: auto; /* Ajuste automático para respetar las proporciones */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Social Bar */
+.social-bar {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+}
+
+.social-bar a {
+    margin: 0 10px;
+    color: #f8f9fa;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.social-bar a:hover {
+    color: #adb5bd;
+}
+
+/* Contact Info in Social Bar */
+.social-bar p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}

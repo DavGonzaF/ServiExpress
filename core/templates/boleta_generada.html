@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block title %}Boleta Generada{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white text-center">
+            <h2>Boleta Generada</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Usuario:</strong> {{ boleta.usuario }}</p>
+            <p><strong>Fecha:</strong> {{ boleta.fecha|date:"d/m/Y" }}  a las {{ boleta.fecha|date:"H:i:s" }} hrs.</p>
+
+            <h4 class="mt-4">Detalles de los Servicios</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in boleta.items.all %}
+                    <tr>
+                        <td>{{ item.servicio.nombre }}</td>
+                        <td>{{ item.cantidad }}</td>
+                        <td>${{ item.precio_unitario|floatformat:2 }}</td>
+                        <td>${{ item.subtotal|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                        <td><strong>${{ boleta.total|floatformat:2 }}</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'home' %}" class="btn btn-primary">Volver al Inicio</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

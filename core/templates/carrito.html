@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Tu Carrito</h1>
+    <div class="card shadow-sm mt-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Detalles del Carrito</h4>
+        </div>
+        <div class="card-body">
+            {% if items %}
+            <table class="table table-bordered text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Subtotal</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.servicio.nombre }}</td>
+                        <td>{{ item.cantidad }}</td>
+                        <td>${{ item.servicio.precio|floatformat:2 }}</td>
+                        <td>${{ item.subtotal|floatformat:2 }}</td>
+                        <td>
+                            <form action="{% url 'eliminar_item_carrito' item.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="text-right">
+                <h4>Total: <span class="text-success">${{ total|floatformat:2 }}</span></h4>
+            </div>
+            {% else %}
+            <p class="text-center text-muted">Tu carrito está vacío.</p>
+            {% endif %}
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'servicios' %}" class="btn btn-secondary">Seguir Comprando</a>
+            {% if items %}
+            <a href="{% url 'generar_boleta' %}" class="btn btn-success">Finalizar Compra</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Editar Usuario - ServiExpress
+{% endblock %}
+
+{% block content %}
+<h2>Editar Usuario</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a href="{% url 'gestionar_usuarios' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
